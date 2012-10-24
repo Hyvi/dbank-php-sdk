@@ -1,15 +1,9 @@
 # player
 
-The best project ever.
+播放视频和音频
 
 ## Getting Started
-### On the server
-Install the module with: `npm install player`
 
-```javascript
-var player = require('player');
-player.awesome(); // "awesome"
-```
 
 ### In the browser
 Download the [production version][min] or the [development version][max].
@@ -22,25 +16,42 @@ In your web page:
 ```html
 <script src="dist/player.min.js"></script>
 <script>
-awesome(); // "awesome"
+/**   Video   */ 
+// http://dl.vmall.com/u13001564/sample.avi?m=jsonp  // test env
+var callurl = 'http://dl.vmall.com/u13001564/sample.avi';
+//var callurl = 'http://dl.vmall.com/u13001564/movie.swf';
+//var callurl = 'http://dl.vmall.com/u13001564/3d.wmv';
+//var callurl = 'http://dl.vmall.com/u13001564/nianshaowuzhi.mp4';
+//var callurl = 'http://dl.vmall.com/u13001564/Big_Buck_Bunny_Trailer_400p.ogg';
+
+/**   Audio   */
+// 
+play(callurl,'mp',"inlinevideo");
 </script>
 ```
 
-In your code, you can attach player's methods to any object.
-
-```html
-<script>
-this.exports = Bocoup.utils;
-</script>
-<script src="dist/player.min.js"></script>
-<script>
-Bocoup.utils.awesome(); // "awesome"
-</script>
-```
 
 ## Documentation
-_(Coming soon)_
-
+###各种播放类型支持情况：
+   - qt
+       support : wav/mp4
+       browsers : ie(>8) , QuickTime needed
+       systems : window
+   - html5      
+       support : mp4(only chrome) ogg webm
+       browsers : ie(>8) chrome filefox
+       systems : window/linux/macos
+   - swf
+       support .swf
+       browsers: ie(>5) chrome filefox
+       systems : window/linux/macos
+   - mp
+       support : avi(only ie) wmv
+       browsers : ie(>5) firefox chrome
+       systems : window
+   - audio
+       参看：http://buzz.jaysalvat.com/documentation/sound/
+   
 ## Examples
 _(Coming soon)_
 
@@ -50,7 +61,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 _Also, please don't edit files in the "dist" subdirectory as they are generated via grunt. You'll find source code in the "lib" subdirectory!_
 
 ## Release History
-_(Nothing yet)_
+_(20121024)_    整理文档,完善readme.
 
 ## License
 Copyright (c) 2012 Hyvi  

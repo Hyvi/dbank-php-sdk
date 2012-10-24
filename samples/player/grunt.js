@@ -54,6 +54,7 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', 'lint test concat min');
+  //grunt.registerTask('default', 'test concat min');
+  grunt.registerTask('default', 'concat min');
 
 };

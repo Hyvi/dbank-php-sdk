@@ -1281,23 +1281,40 @@ var buzz = {
     }
 };
 
-/*
+/**
  * player
  * Copyright (c) 2012 Hyvi
  * Licensed under the MIT license.
  */
-(function(){
-    /**   Video   */ 
-    // http://dl.vmall.com/u13001564/sample.avi?m=jsonp  // test env
-    var callurl = 'http://dl.vmall.com/u13001564/sample.avi';
-    //var callurl = 'http://dl.vmall.com/u13001564/movie.swf';
-    //var callurl = 'http://dl.vmall.com/u13001564/3d.wmv';
-    //var callurl = 'http://dl.vmall.com/u13001564/nianshaowuzhi.mp4';
-    //var callurl = 'http://dl.vmall.com/u13001564/Big_Buck_Bunny_Trailer_400p.ogg';
 
-    /**   Audio   */
-    // 
-    //
+/**
+ * 播放视频或者音频
+ * 各种播放类型支持情况：
+ *  - qt
+ *      support : wav/mp4
+ *      browsers : ie(>8) , QuickTime needed
+ *      systems : window
+ *  - html5      
+ *      support : mp4(only chrome) ogg webm
+ *      browsers : ie(>8) chrome filefox
+ *      systems : window/linux/macos
+ *  - swf
+ *      support .swf
+ *      browsers: ie(>5) chrome filefox
+ *      systems : window/linux/macos
+ *  - mp
+ *      support : avi(only ie) wmv
+ *      browsers : ie(>5) firefox chrome
+ *      systems : window
+ *  - audio
+ *      参看：http://buzz.jaysalvat.com/documentation/sound/
+ *      
+ * @param {String} callurl 视频或者音频文件的直链地址
+ * @param {String} type  选用那种播放方式，例如：视频播放类型有qt\html5\swf\mp,音频播放类型有audio. 以上播放类型的支持情况见详细描述。
+ * @param {String} container    放在页面播放的位置,dom元素的id值。
+ * @api public
+ */
+function play(callurl,type,container){ 
     var param = {m:'jsonp', jsoncallback: "_jqjsp"}, o = {};
 
     // 处理返回来的数据
@@ -1308,7 +1325,7 @@ var buzz = {
         if(data.retcode === '0000'){
 
             // 1, 设置播放器的模板代码，用${video_src}替换播放视频的url值
-            var embed, select = 'mp';
+            var embed,select = type;
             /**  Audio  */
             if(select === 'audio'){
                var mySound = new buzz.sound(data.url); 
@@ -1345,7 +1362,11 @@ var buzz = {
             embed = embed.replace(/\$\{video_src\}/gi,data.url);
 
             // 3, 放置在dom相应的位置
-            document.getElementById("inlinevideo").innerHTML = embed;
+            if(!container){
+               // 如果没有设置容器，直接使用document.write
+               container = 'inlinevideo'
+            }
+            document.getElementById(container).innerHTML = embed;
         }
     };
 
@@ -1361,4 +1382,5 @@ var buzz = {
         pageCache:true,
         error: o.error
     });  
-}());
+}
+
