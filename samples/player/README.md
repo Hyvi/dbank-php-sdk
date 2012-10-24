@@ -34,23 +34,23 @@ play(callurl,'mp',"inlinevideo");
 ## Documentation
 ###各种播放类型支持情况：
    - qt
-       support : wav/mp4
-       browsers : ie(>8) , QuickTime needed
-       systems : window
+       * support : wav/mp4
+       * browsers : ie(>8) , QuickTime needed
+       * systems : window
    - html5      
-       support : mp4(only chrome) ogg webm
-       browsers : ie(>8) chrome filefox
-       systems : window/linux/macos
+       * support : mp4(only chrome) ogg webm
+       * browsers : ie(>8) chrome filefox
+       * systems : window/linux/macos
    - swf
-       support .swf
-       browsers: ie(>5) chrome filefox
-       systems : window/linux/macos
+       * support .swf
+       * browsers: ie(>5) chrome filefox
+       * systems : window/linux/macos
    - mp
-       support : avi(only ie) wmv
-       browsers : ie(>5) firefox chrome
-       systems : window
+       * support : avi(only ie) wmv
+       * browsers : ie(>5) firefox chrome
+       * systems : window
    - audio
-       参看：http://buzz.jaysalvat.com/documentation/sound/
+       * 参看：http://buzz.jaysalvat.com/documentation/sound/
    
 ## Examples
 _(Coming soon)_
