@@ -25,7 +25,8 @@ var callurl = 'http://dl.vmall.com/u13001564/sample.avi';
 //var callurl = 'http://dl.vmall.com/u13001564/Big_Buck_Bunny_Trailer_400p.ogg';
 
 /**   Audio   */
-// 
+//var callurl =  'http://dl.vmall.com/u13001564/nianshaowuzhi.mp3';
+
 play(callurl,'mp',"inlinevideo");
 </script>
 ```
