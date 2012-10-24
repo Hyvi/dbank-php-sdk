@@ -8,8 +8,8 @@
 ### In the browser
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/Hyvi/player/master/dist/player.min.js
-[max]: https://raw.github.com/Hyvi/player/master/dist/player.js
+[min]: https://raw.github.com/Hyvi/dbank-php-sdk/master/samples/player/dist/player.min.js 
+[max]: https://raw.github.com/Hyvi/dbank-php-sdk/master/samples/player/dist/player.js 
 
 In your web page:
 
